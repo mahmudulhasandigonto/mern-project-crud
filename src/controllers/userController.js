@@ -22,6 +22,20 @@ async function getUser(req, res) {
    }
 }
 
+async function getUserList(req, res) {
+   try {
+      const user = await userService.getUserList();
+      if (!user) {
+         res.status(404).json({ error: 'User not found' });
+      } else {
+         res.json(user);
+      }
+   } catch (error) {
+      res.status(500).json({ error: 'An error occurred' });
+   }
+}
+
+
 async function updateUser(req, res) {
    try {
       const user = await userService.updateUser(req.params.id, req.body);
@@ -53,4 +67,5 @@ module.exports = {
    getUser,
    updateUser,
    deleteUser,
+   getUserList
 };

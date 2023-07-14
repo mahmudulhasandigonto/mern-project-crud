@@ -6,14 +6,15 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 // Database connection
-mongoose.connect('mongodb://localhost/mydatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect('mongodb://localhost:27017/mydatabase', {
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
 });
 
 // Routes
-app.use('/users', userRoutes);
+app.use('/api/v1/users', userRoutes);
 
 module.exports = app;

@@ -18,9 +18,14 @@ async function deleteUser(userId) {
    return User.findByIdAndDelete(userId);
 }
 
+async function getUserList() {
+   return User.find({});
+}
+
 module.exports = {
    createUser,
    getUserById,
    updateUser,
    deleteUser,
+   getUserList,
 };
