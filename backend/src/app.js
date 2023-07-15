@@ -6,7 +6,8 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+//we don't need this
+// app.use(express.urlencoded({ extended: true }))
 
 // Database connection
 mongoose.connect('mongodb://localhost:27017/mydatabase', {
